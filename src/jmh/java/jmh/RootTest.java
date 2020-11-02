@@ -6,15 +6,7 @@ import test.*;
 
 public class RootTest {
 
-    @Benchmark
-    public void tryCostSimpleSum(Blackhole blackhole) {
-        blackhole.consume(TryCost.INSTANCE.trivialSum(-10000,10000));
-    }
 
-    @Benchmark
-    public void tryCostWithUnlikelyException(Blackhole blackhole) {
-        blackhole.consume(TryCost.INSTANCE.tryCatchSum(-10000,10000));
-    }
 
     @Benchmark
     public void trivial(Blackhole blackhole) {
