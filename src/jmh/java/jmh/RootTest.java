@@ -1,11 +1,26 @@
 package jmh;
 
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
 import test.*;
 
 public class RootTest {
+
+    @Benchmark
+    public void tryCostSimpleSum(Blackhole blackhole) {
+        blackhole.consume(TryCost.INSTANCE.trivialSum(-10000,10000));
+    }
+
+    @Benchmark
+    public void tryCostWithUnlikelyException(Blackhole blackhole) {
+        blackhole.consume(TryCost.INSTANCE.tryCatchSum(-10000,10000));
+    }
+
+    @Benchmark
+    public void trivial(Blackhole blackhole) {
+        long a = System.nanoTime();
+        blackhole.consume(a+1);
+    }
 
     @Benchmark
     public void root1(Blackhole blackhole) {
