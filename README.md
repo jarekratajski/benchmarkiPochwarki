@@ -12,3 +12,7 @@ Build code:
 Run benchmark
 
 ./gradlew jmh
+
+
+Notice: jmh plugin works on jvm from version 8 to 11 (including graal).
+At the moment it fails on more recent java platforms.
