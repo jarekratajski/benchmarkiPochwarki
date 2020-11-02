@@ -3,7 +3,7 @@ package test
 object TryCost {
 
     fun trivialSum(a: Long, b: Long) =
-        (a..b).sum().also {
+        (a..b).sum().let {
             if ( it > 200000000) {
                 -1
             } else {
@@ -12,7 +12,7 @@ object TryCost {
         }
 
     fun tryCatchSum(a: Long, b: Long) =
-        (a..b).sum().also {
+        (a..b).sum().let {
             try {
                 if ( it > 200000000) {
                     throw Exception("should not happen")
